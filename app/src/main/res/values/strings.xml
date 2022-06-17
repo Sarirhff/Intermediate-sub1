@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">StoryAPP</string>
+
+    <string name="mymenu_1">everyone share their amazing story here</string>
+    <string name="mymenu_2">You can read other people\'s stories here</string>
+    <string name="mymenu_3">Create your story and share it with the world</string>
+    <string name="mymenu_4">let\'s share your interesting story here</string>
+
+    <string name="descrip_mymenu_1">they share a lot of new and fun stories to watch</string>
+    <string name="descrip_mymenu_2">everyone can share any story here</string>
+    <string name="descrip_mymenu_3">you are free to share any story</string>
+    <string name="descrip_mymenu_4">Tell me about an interesting incident that you\'ve been through</string>
+    <string name="lets_start">Let\'s Start</string>
+    <string name="welcome">WELCOME</string>
+    <string name="have_account">Don\'t have Account?</string>
+    <string name="login">Log In</string>
+    <string name="regis">Registrasion</string>
+    <string name="log_out">Log Out</string>
+    <string name="sign_up_success">You have alredy Account</string>
+    <string name="empty_name">please input your name</string>
+    <string name="empty_email">please input your email</string>
+    <string name="empty_pass">password more than 6 characters</string>
+    <string name="story_not_found">Story not Found</string>
+    <string name="add_story">Add Story</string>
+    <string name="permission_cam">This app needs permission use the camera</string>
+    <string name="descrip_story">Story Description</string>
+    <string name="upload">Upload</string>
+    <string name="wait_picture">Please wait</string>
+    <string name="descrip_empty">Description can not be empty</string>
+    <string name="story_success">Your Story has been uplaod</string>
+    <string name="failed_take">Failed take a picture</string>
+    <string name="failed_cam">Failed to show Camera</string>
+</resources>
