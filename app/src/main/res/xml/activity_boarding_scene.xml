@@ -378,7 +378,7 @@
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="32dp" />
         <Constraint
-            android:id="@+id/button"
+            android:id="@+id/button_get_start"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
