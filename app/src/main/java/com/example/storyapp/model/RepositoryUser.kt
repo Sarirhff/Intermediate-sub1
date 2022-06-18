@@ -3,22 +3,21 @@ package com.example.storyapp.model
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import com.example.storyapp.model.Result
 import com.example.storyapp.response.LoginResponse
 import com.example.storyapp.response.RegisterResponse
-import com.example.storyapp.retrofit.ApiServis
+import com.example.storyapp.retrofit.ApiService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RepositoryUser private constructor(private val apiServis: ApiServis
+class RepositoryUser private constructor(private val apiService: ApiService
     ) {
     private val loginResult = MediatorLiveData<Result<LoginResponse>>()
     private val regisResult = MediatorLiveData<Result<RegisterResponse>>()
 
     fun loginUser(email: String, password: String): LiveData<Result<LoginResponse>> {
         loginResult.value = Result.Loading
-        val client = apiServis.login(
+        val client = apiService.login(
             email, password
         )
 
@@ -47,11 +46,11 @@ class RepositoryUser private constructor(private val apiServis: ApiServis
         return loginResult
     }
 
-    fun registerUser(username: String, email: String, password: String
+    fun registerUser(name: String, email: String, password: String
     ): LiveData<Result<RegisterResponse>> {
         regisResult.value = Result.Loading
-        val client = apiServis.register(
-            username, email, password
+        val client = apiService.register(
+            name, email, password
         )
 
         client.enqueue(object : Callback<RegisterResponse> {
@@ -60,9 +59,9 @@ class RepositoryUser private constructor(private val apiServis: ApiServis
                 response: Response<RegisterResponse>
             ) {
                 if (response.isSuccessful) {
-                    val signUpResponse = response.body()
-                    if (signUpResponse != null && !signUpResponse.error!!) {
-                        regisResult.value = Result.Success(signUpResponse)
+                    val regisResponse = response.body()
+                    if (regisResponse != null && !regisResponse.error!!) {
+                        regisResult.value = Result.Success(regisResponse)
                     } else {
                         regisResult.value = Result.Error(REGIS_ERROR)
                         Log.e(TAG, "Failed: Register Response is failure")
@@ -85,12 +84,12 @@ class RepositoryUser private constructor(private val apiServis: ApiServis
     companion object {
         private val TAG = RepositoryUser::class.java.simpleName
         private const val LOGIN_ERROR = "Sorry! You can't Login, please try again later."
-        private const val REGIS_ERROR = "Sorry! You can't Sign up, please try again later."
+        private const val REGIS_ERROR = "Sorry! You can't Register, please try again later."
 
         @Volatile
         private var instance: RepositoryUser? = null
 
-        fun getInstance(apiService: ApiServis) =
+        fun getInstance(apiService: ApiService) =
             instance ?: synchronized(this) {
                 instance ?: RepositoryUser(apiService)
             }.also { instance = it }

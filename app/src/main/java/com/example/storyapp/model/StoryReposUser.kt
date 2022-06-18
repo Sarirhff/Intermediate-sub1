@@ -7,7 +7,7 @@ import com.example.storyapp.database.AppExecutors
 import com.example.storyapp.database.UserStoryDao
 import com.example.storyapp.response.AddNewStoryResponse
 import com.example.storyapp.response.GetAllStoriesResponse
-import com.example.storyapp.retrofit.ApiServis
+import com.example.storyapp.retrofit.ApiService
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -19,7 +19,7 @@ import retrofit2.Response
 import java.io.File
 
 class StoryReposUser private constructor(
-    private val apiService: ApiServis,
+    private val apiService: ApiService,
     private val storyUserDao: UserStoryDao,
     private val appExecutors: AppExecutors
     ) {
@@ -124,7 +124,7 @@ class StoryReposUser private constructor(
         private var instance: StoryReposUser? = null
 
         fun getInstance(
-            apiService: ApiServis,
+            apiService: ApiService,
             storyDao: UserStoryDao,
             appExecutor: AppExecutors
         ): StoryReposUser =
