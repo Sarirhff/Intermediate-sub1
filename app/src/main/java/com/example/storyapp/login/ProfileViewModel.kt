@@ -10,7 +10,8 @@ import com.example.storyapp.retrofit.Injection
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ProfileViewModel (private val userPreference: UserPreference, private val storyUserRepository: StoryReposUser) : ViewModel() {
+class ProfileViewModel (private val userPreference: UserPreference,
+                        private val storyUserRepository: StoryReposUser) : ViewModel() {
 
     fun logout() {
         viewModelScope.launch(Dispatchers.IO) {

@@ -3,19 +3,18 @@ package com.example.storyapp.login
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.storyapp.R
 import com.example.storyapp.databinding.ActivityBoardingBinding
 import com.example.storyapp.model.UserPreference
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "token")
 class BoardingActivity : AppCompatActivity() {
 
     private val binding: ActivityBoardingBinding by lazy {

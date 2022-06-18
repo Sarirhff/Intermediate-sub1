@@ -4,12 +4,12 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.datastore.core.DataStore
@@ -20,11 +20,11 @@ import com.example.storyapp.R
 import com.example.storyapp.databinding.ActivityMainBinding
 import com.example.storyapp.login.LoginUserActivity
 import com.example.storyapp.login.ProfileActivity
-import com.example.storyapp.model.UserPreference
 import com.example.storyapp.model.Result
+import com.example.storyapp.model.UserPreference
 import com.example.storyapp.ui.CameraActivity
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "token")
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)

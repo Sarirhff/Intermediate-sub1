@@ -10,7 +10,7 @@ import androidx.datastore.preferences.preferencesDataStore
 import com.example.storyapp.databinding.ActivityProfileBinding
 import com.example.storyapp.model.UserPreference
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "token")
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProfileBinding

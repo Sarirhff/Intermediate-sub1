@@ -1,8 +1,6 @@
 package com.example.storyapp.login
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.storyapp.model.RepositoryUser
 import com.example.storyapp.model.UserPreference
 import com.example.storyapp.retrofit.Injection
@@ -17,39 +15,40 @@ class LoginViewModel(private val pref: UserPreference, private val repos: Reposi
             pref.saveUser(token)
         }
     }
+    fun checkIfNewUser(): LiveData<Boolean> {
+        return pref.newUser().asLiveData()
+    }
 
     fun loginUser(email: String, password: String) =
         repos.loginUser(email, password)
 
+    class LoginViewModelFactory private constructor(
+        private val userRepository: RepositoryUser,
+        private val userPreference: UserPreference
+    ) :
+        ViewModelProvider.NewInstanceFactory() {
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
+                return LoginViewModel(userPreference, userRepository) as T
+            }
 
-}
-
-class LoginViewModelFactory private constructor(
-    private val userRepository: RepositoryUser,
-    private val userPreference: UserPreference
-) :
-    ViewModelProvider.NewInstanceFactory() {
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
-            return LoginViewModel(userPreference, userRepository) as T
+            throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
 
-        throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
-    }
-
-    companion object {
-        @Volatile
-        private var instance: LoginViewModelFactory? = null
-        fun getInstance(
-            userPreference: UserPreference
-        ): LoginViewModelFactory =
-            instance ?: synchronized(this) {
-                instance ?: LoginViewModelFactory(
-                    Injection.provideUserRepository(),
-                    userPreference
-                )
-            }
+        companion object {
+            @Volatile
+            private var instance: LoginViewModelFactory? = null
+            fun getInstance(
+                userPreference: UserPreference
+            ): LoginViewModelFactory =
+                instance ?: synchronized(this) {
+                    instance ?: LoginViewModelFactory(
+                        Injection.provideUserRepository(),
+                        userPreference
+                    )
+                }
+        }
     }
 }
 

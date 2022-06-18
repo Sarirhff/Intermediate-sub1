@@ -20,7 +20,7 @@ import com.example.storyapp.main.MainActivity
 import com.example.storyapp.model.Result
 import com.example.storyapp.model.UserPreference
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "token")
 
 class LoginUserActivity : AppCompatActivity() {
 
@@ -35,7 +35,7 @@ class LoginUserActivity : AppCompatActivity() {
         setupAction()
     }
     private val loginViewModel: LoginViewModel by viewModels {
-        LoginViewModelFactory.getInstance(
+        LoginViewModel.LoginViewModelFactory.getInstance(
             UserPreference.getInstance(dataStore)
         )
     }
@@ -51,6 +51,22 @@ class LoginUserActivity : AppCompatActivity() {
         }
         supportActionBar?.hide()
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setupCheck()
+    }
+
+    private fun setupCheck() {
+        loginViewModel.checkIfNewUser().observe(this) {
+            if (it) {
+                val intent = Intent(this, BoardingActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+                finish()
+            }
+        }
     }
 
     private fun setupAction() {

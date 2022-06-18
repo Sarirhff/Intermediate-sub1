@@ -20,7 +20,7 @@ class RegisUserActivity : AppCompatActivity() {
         ActivityRegisUserBinding.inflate(layoutInflater)
     }
     private val regisViewModel: RegisViewModel by viewModels {
-        RegisViewModelFactory.getInstance()
+        RegisViewModel.RegisViewModelFactory.getInstance()
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
