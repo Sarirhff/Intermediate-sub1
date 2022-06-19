@@ -1,22 +1,27 @@
 package com.example.storyapp.main
 
 import android.content.Context
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.example.storyapp.model.StoryReposUser
 import com.example.storyapp.model.UserPreference
 import com.example.storyapp.retrofit.Injection
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val userPreference: UserPreference,
     private val storyUserRepository: StoryReposUser) : ViewModel() {
 
+
     fun getStories(token: String) = storyUserRepository.getStories(token)
 
     fun checkIfTokenAvailable(): LiveData<String> {
         return userPreference.getUser().asLiveData()
+    }
+    fun logoutUser() {
+        viewModelScope.launch(Dispatchers.IO) {
+            userPreference.logout()
+        }
     }
 
     class MainViewModelFactory(

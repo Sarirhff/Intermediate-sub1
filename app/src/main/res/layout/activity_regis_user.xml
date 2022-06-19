@@ -16,7 +16,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ilustrasi6" />
+        android:src="@drawable/ilustrasi6"
+        android:contentDescription="@string/vektor" />
 
     <TextView
         android:id="@+id/regis_text"
@@ -26,26 +27,26 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="138dp"
         android:fontFamily="@font/paprika"
-        android:text="Register"
+        android:text="@string/register"
         android:textColor="@color/black"
-        android:textSize="29dp"
+        android:textSize="29sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_regis" />
 
 
-    <com.example.storyapp.main.Customview
+    <com.example.storyapp.main.EmailEditText
         android:id="@+id/edt_email_regis"
         android:layout_width="327dp"
         android:layout_height="55dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/edit_text"
-        android:hint="Email"
+        android:hint="@string/email"
         app:layout_constraintEnd_toEndOf="@+id/edt_usrname_regis"
         app:layout_constraintStart_toStartOf="@+id/edt_usrname_regis"
         app:layout_constraintTop_toBottomOf="@+id/edt_usrname_regis" />
 
-    <com.example.storyapp.main.Customview
+    <com.example.storyapp.main.CustomEditText
         android:id="@+id/edt_usrname_regis"
         android:layout_width="327dp"
         android:layout_height="55dp"
@@ -53,19 +54,19 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="42dp"
         android:background="@drawable/edit_text"
-        android:hint="User Name"
+        android:hint="@string/user_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/regis_text" />
 
-    <com.example.storyapp.main.Customview
+    <com.example.storyapp.main.PasswordEditText
         android:id="@+id/edt_password_regis"
         android:layout_width="327dp"
         android:layout_height="55dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/edit_text"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/edt_email_regis"
         app:layout_constraintStart_toStartOf="@+id/edt_email_regis"
@@ -78,8 +79,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="Register"
-        android:textSize="16dp"
+        android:text="@string/register"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/edt_password_regis"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edt_password_regis"
@@ -92,7 +93,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/poppins_light"
-        android:text="Already Have Account?"
+        android:text="@string/already_have_account"
         app:layout_constraintStart_toStartOf="@+id/button_regis"
         app:layout_constraintTop_toBottomOf="@+id/button_regis" />
 

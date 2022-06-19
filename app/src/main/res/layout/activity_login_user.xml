@@ -14,7 +14,7 @@
         android:fontFamily="@font/paprika"
         android:text="@string/welcome"
         android:textColor="@color/black"
-        android:textSize="29dp"
+        android:textSize="29sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -27,7 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcome_text"
-        app:srcCompat="@drawable/ilustrasi5" />
+        app:srcCompat="@drawable/ilustrasi5"
+        android:contentDescription="@string/vektor" />
 
     <TextView
         android:id="@+id/user_login"
@@ -35,31 +36,31 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_medium"
-        android:text="User Login"
-        android:textSize="20dp"
+        android:text="@string/user_login"
+        android:textSize="20sp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/img_welcom"
         app:layout_constraintStart_toStartOf="@+id/img_welcom"
         app:layout_constraintTop_toBottomOf="@+id/img_welcom" />
 
-    <com.example.storyapp.main.Customview
+    <com.example.storyapp.main.EmailEditText
         android:id="@+id/edt_email_login"
         android:layout_width="327dp"
         android:layout_height="55dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/edit_text"
-        android:hint="Email"
+        android:hint="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_login" />
 
-    <com.example.storyapp.main.Customview
+    <com.example.storyapp.main.PasswordEditText
         android:id="@+id/edt_password_login"
         android:layout_width="327dp"
         android:layout_height="55dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/edit_text"
-        android:hint="Password"
+        android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/edt_email_login"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,7 +75,7 @@
         android:layout_marginTop="40dp"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/login"
-        android:textSize="16dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/edt_password_login"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edt_password_login"

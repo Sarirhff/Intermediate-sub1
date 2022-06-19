@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
@@ -19,7 +20,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.storyapp.R
 import com.example.storyapp.databinding.ActivityMainBinding
 import com.example.storyapp.login.LoginUserActivity
-import com.example.storyapp.login.ProfileActivity
 import com.example.storyapp.model.Result
 import com.example.storyapp.model.UserPreference
 import com.example.storyapp.ui.CameraActivity
@@ -39,11 +39,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        setupButtons()
-    }
 
-    override fun onResume() {
-        super.onResume()
+        setupButtons()
         checkIfSessionValid()
     }
 
@@ -82,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         binding.tvNoStoryFound.visibility = View.INVISIBLE
                         binding.rvStory.apply {
-                            adapter = StoryAdapter(this@MainActivity, data)
+                            adapter = StoryAdapter(this@MainActivity,data)
                             layoutManager = LinearLayoutManager(this@MainActivity)
                         }
                     }
@@ -90,13 +87,16 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.option_menu, menu)
 
+        return super.onCreateOptionsMenu(menu)
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.setting_profile -> {
-                startActivity(Intent(this, ProfileActivity::class.java))
-            }
+            R.id.logout_setting -> {
+                mainViewModel.logoutUser()            }
         }
         return super.onOptionsItemSelected(item)
     }

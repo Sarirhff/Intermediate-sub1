@@ -26,15 +26,15 @@ interface ApiService {
         @Part("description") description: RequestBody,
     ): Call<AddNewStoryResponse>
 
-    @FormUrlEncoded
     @POST("login")
+    @FormUrlEncoded
     fun login(
         @Field("email") email: String,
         @Field("password") password: String
     ): Call<LoginResponse>
 
-    @FormUrlEncoded
     @POST("register")
+    @FormUrlEncoded
     fun register(
         @Field("name") name: String,
         @Field("email") email: String,

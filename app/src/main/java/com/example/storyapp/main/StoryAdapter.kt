@@ -22,12 +22,12 @@ class StoryAdapter (private val context: Context, private val list: List<UserEnt
 
     override fun onBindViewHolder(holder: StoryAdapter.ViewHolder, position: Int) {
         val storyUser = list[position]
-        holder.binding.tvItemUsername.text = storyUser.name
-        holder.binding.tvItemDesc.text = storyUser.description
+        holder.binding.tvStoryUsername.text = storyUser.name
+        holder.binding.tvDescripStory.text = storyUser.description
 
         Glide.with(holder.itemView.context)
             .load(storyUser.photoUrl)
-            .into(holder.binding.ivItemStory)
+            .into(holder.binding.imgStory)
 
         holder.binding.cardView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailStoryActivity::class.java)
@@ -38,8 +38,8 @@ class StoryAdapter (private val context: Context, private val list: List<UserEnt
             val optionsCompat: ActivityOptionsCompat =
                 ActivityOptionsCompat.makeSceneTransitionAnimation(
                     holder.itemView.context as Activity,
-                    Pair(holder.binding.ivItemStory, "picture"),
-                    Pair(holder.binding.tvItemDesc, "description")
+                    Pair(holder.binding.imgStory, "picture"),
+                    Pair(holder.binding.tvDescripStory, "description")
                 )
 
             holder.itemView.context.startActivity(intent, optionsCompat.toBundle())

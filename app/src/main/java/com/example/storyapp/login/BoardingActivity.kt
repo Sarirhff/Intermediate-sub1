@@ -21,7 +21,7 @@ class BoardingActivity : AppCompatActivity() {
         ActivityBoardingBinding.inflate(layoutInflater)
     }
 
-    private val boardingViewModel: BoardingViewModel by viewModels {
+    private val viewModel: BoardingViewModel by viewModels {
         BoardingViewModel.BoardingViewModelFactory.getInstance(UserPreference.getInstance(dataStore))
     }
 
@@ -31,14 +31,14 @@ class BoardingActivity : AppCompatActivity() {
 
         binding.buttonGetStart.setOnClickListener {
             val intent = Intent(this, LoginUserActivity::class.java)
-            boardingViewModel.setNewUser(false)
+            viewModel.saveNewUser(false)
             startActivity(intent)
 
-            setupView()
+            hideSystemUI()
         }
     }
 
-    private fun setupView() {
+    private fun hideSystemUI() {
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())

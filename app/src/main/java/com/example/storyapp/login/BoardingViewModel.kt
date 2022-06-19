@@ -7,20 +7,20 @@ import com.example.storyapp.model.UserPreference
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class BoardingViewModel (private val userPreference: UserPreference) : ViewModel() {
+class BoardingViewModel (private val pref: UserPreference) : ViewModel() {
 
-    fun setNewUser(firstTime: Boolean) {
+    fun saveNewUser(firstTime: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
-            userPreference.saveNewUser(firstTime)
+            pref.saveNewUser(firstTime)
         }
     }
 
-    class BoardingViewModelFactory private constructor(private val userPreference: UserPreference) :
+    class BoardingViewModelFactory private constructor(private val pref: UserPreference) :
         ViewModelProvider.NewInstanceFactory() {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(BoardingViewModel::class.java)) {
-                return BoardingViewModel(userPreference) as T
+                return BoardingViewModel(pref) as T
             }
 
             throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

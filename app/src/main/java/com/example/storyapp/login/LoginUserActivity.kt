@@ -31,7 +31,7 @@ class LoginUserActivity : AppCompatActivity() {
         binding = ActivityLoginUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupView()
+        hideSystemUI()
         setupAction()
     }
     private val loginViewModel: LoginViewModel by viewModels {
@@ -39,7 +39,7 @@ class LoginUserActivity : AppCompatActivity() {
             UserPreference.getInstance(dataStore)
         )
     }
-    private fun setupView() {
+    private fun hideSystemUI() {
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())
@@ -55,10 +55,10 @@ class LoginUserActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        setupCheck()
+        checkNewUser()
     }
 
-    private fun setupCheck() {
+    private fun checkNewUser() {
         loginViewModel.checkIfNewUser().observe(this) {
             if (it) {
                 val intent = Intent(this, BoardingActivity::class.java)

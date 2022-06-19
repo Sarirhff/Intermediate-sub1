@@ -30,4 +30,13 @@
     <string name="story_success">Your Story has been uplaod</string>
     <string name="failed_take">Failed take a picture</string>
     <string name="failed_cam">Failed to show Camera</string>
+    <string name="logout_setting">LOG OUT</string>
+    <string name="register">Register</string>
+    <string name="already_have_account">Already Have Account?</string>
+    <string name="password">Password</string>
+    <string name="user_name">User Name</string>
+    <string name="email">Email</string>
+    <string name="vektor">vektor</string>
+    <string name="user_login">User Login</string>
+    <string name="email_correct">Your Email entered in not Correct</string>
 </resources>

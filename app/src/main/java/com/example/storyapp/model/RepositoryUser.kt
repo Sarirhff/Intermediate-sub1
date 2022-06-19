@@ -10,7 +10,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RepositoryUser private constructor(private val apiService: ApiService
+class RepositoryUser private constructor(
+    private val apiService: ApiService
 ) {
     private val loginResult = MediatorLiveData<Result<LoginResponse>>()
     private val regisResult = MediatorLiveData<Result<RegisterResponse>>()

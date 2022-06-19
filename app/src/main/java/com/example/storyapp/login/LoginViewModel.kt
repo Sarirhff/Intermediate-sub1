@@ -7,7 +7,9 @@ import com.example.storyapp.retrofit.Injection
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class LoginViewModel(private val pref: UserPreference, private val repos: RepositoryUser) :
+class LoginViewModel(
+    private val pref: UserPreference,
+    private val repos: RepositoryUser) :
     ViewModel() {
 
     fun saveUser(token: String) {

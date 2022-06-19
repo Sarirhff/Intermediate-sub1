@@ -19,6 +19,7 @@
         android:id="@+id/tv_descrip_detail"
         android:layout_width="405dp"
         android:layout_height="107dp"
+        android:paddingStart="16dp"
         android:paddingTop="32dp"
         android:paddingEnd="16dp"
         android:paddingBottom="16dp"

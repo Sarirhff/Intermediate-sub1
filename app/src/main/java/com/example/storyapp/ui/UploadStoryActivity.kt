@@ -5,26 +5,26 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.storyapp.R
 import com.example.storyapp.database.AppExecutors
-import com.example.storyapp.model.Result
 import com.example.storyapp.databinding.ActivityUploadStoryBinding
 import com.example.storyapp.login.LoginUserActivity
 import com.example.storyapp.main.MainActivity
+import com.example.storyapp.model.Result
 import com.example.storyapp.model.UserPreference
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "setting")
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "token")
 class UploadStoryActivity : AppCompatActivity() {
     private var file: File? = null
     private var isBack: Boolean = true

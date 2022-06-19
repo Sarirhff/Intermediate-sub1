@@ -7,7 +7,7 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import com.example.storyapp.R
 
-class Customview : AppCompatEditText {
+open class CustomEditText : AppCompatEditText {
     constructor(context: Context) : super(context) {
         init()
     }
