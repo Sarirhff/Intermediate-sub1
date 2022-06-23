@@ -21,6 +21,7 @@ import com.example.storyapp.R
 import com.example.storyapp.databinding.ActivityMainBinding
 import com.example.storyapp.login.LoginUserActivity
 import com.example.storyapp.model.Result
+import com.example.storyapp.model.StoryAdapter
 import com.example.storyapp.model.UserPreference
 import com.example.storyapp.ui.CameraActivity
 
@@ -94,7 +95,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+        when (item.itemId)
+        {
             R.id.logout_setting -> {
                 mainViewModel.logoutUser()            }
         }

@@ -21,24 +21,31 @@ import com.example.storyapp.model.Result
 import com.example.storyapp.model.UserPreference
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "token")
-
 class LoginUserActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLoginUserBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityLoginUserBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        hideSystemUI()
-        setupAction()
+    private val binding: ActivityLoginUserBinding by lazy {
+        ActivityLoginUserBinding.inflate(layoutInflater)
     }
+
     private val loginViewModel: LoginViewModel by viewModels {
         LoginViewModel.LoginViewModelFactory.getInstance(
             UserPreference.getInstance(dataStore)
         )
     }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+
+        setupAction()
+        hideSystemUI()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkNewUser()
+    }
+
     private fun hideSystemUI() {
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -50,16 +57,10 @@ class LoginUserActivity : AppCompatActivity() {
             )
         }
         supportActionBar?.hide()
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-        checkNewUser()
     }
 
     private fun checkNewUser() {
-        loginViewModel.checkIfNewUser().observe(this) {
+        loginViewModel.checkIfNewUser().observe(this){
             if (it) {
                 val intent = Intent(this, BoardingActivity::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -92,7 +93,7 @@ class LoginUserActivity : AppCompatActivity() {
                             binding.loadingBar.visibility = View.INVISIBLE
                             val data = it.data
                             loginViewModel.saveUser(data.loginResult?.token!!)
-                            Log.d("LoginActivity", "Token: ${data.loginResult.token}")
+                            Log.d("LoginUserActivity", "Token: ${data.loginResult.token}")
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                             finish()

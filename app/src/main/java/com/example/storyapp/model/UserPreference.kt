@@ -20,7 +20,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
 
     fun newUser(): Flow<Boolean> {
         return dataStore.data.map {
-            it[this.newUser] ?: true
+            it[newUser] ?: true
         }
     }
 
@@ -36,7 +36,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
-    suspend fun logout() {
+    suspend fun logoutUser() {
         dataStore.edit {
             it[token] = "null"
         }

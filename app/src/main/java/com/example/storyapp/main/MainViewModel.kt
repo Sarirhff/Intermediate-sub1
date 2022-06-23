@@ -10,9 +10,8 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(
     private val userPreference: UserPreference,
-    private val storyUserRepository: StoryReposUser) : ViewModel() {
-
-
+    private val storyUserRepository: StoryReposUser
+    ) : ViewModel() {
     fun getStories(token: String) = storyUserRepository.getStories(token)
 
     fun checkIfTokenAvailable(): LiveData<String> {
@@ -20,7 +19,7 @@ class MainViewModel(
     }
     fun logoutUser() {
         viewModelScope.launch(Dispatchers.IO) {
-            userPreference.logout()
+            userPreference.logoutUser()
         }
     }
 
@@ -33,10 +32,8 @@ class MainViewModel(
             if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
                 return MainViewModel(userPreference, storyUserRepository) as T
             }
-
             throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
-
         companion object {
             @Volatile
             private var instance: MainViewModelFactory? = null

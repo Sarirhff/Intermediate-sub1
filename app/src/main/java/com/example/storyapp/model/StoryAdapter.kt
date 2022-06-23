@@ -1,4 +1,4 @@
-package com.example.storyapp.main
+package com.example.storyapp.model
 
 import android.app.Activity
 import android.content.Context
@@ -10,17 +10,16 @@ import androidx.core.util.Pair
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.storyapp.databinding.ItemStoryBinding
-import com.example.storyapp.model.UserEntity
 import com.example.storyapp.ui.DetailStoryActivity
 
 class StoryAdapter (private val context: Context, private val list: List<UserEntity>) :
     RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: StoryAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val storyUser = list[position]
         holder.binding.tvStoryUsername.text = storyUser.name
         holder.binding.tvDescripStory.text = storyUser.description

@@ -1,6 +1,5 @@
 package com.example.storyapp.login
 
-
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -76,9 +75,7 @@ class RegisUserActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
                             val intent = Intent(this, LoginUserActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
-                            finish()
                         }
                     }
                 }
@@ -96,5 +93,4 @@ class RegisUserActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
 }

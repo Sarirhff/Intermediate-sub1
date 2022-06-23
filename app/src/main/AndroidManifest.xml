@@ -21,9 +21,6 @@
             android:name=".ui.DetailStoryActivity"
             android:exported="false" />
         <activity
-            android:name=".login.ProfileActivity"
-            android:exported="false" />
-        <activity
             android:name=".login.RegisUserActivity"
             android:exported="false" />
         <activity

@@ -35,7 +35,7 @@ class UploadStoryActivity : AppCompatActivity() {
     }
 
     private val cameraViewModel: UploadStoryViewModel by viewModels {
-        UploadStoryViewModelFactory.getInstance(
+        UploadStoryViewModel.UploadStoryViewModelFactory.getInstance(
             this,
             UserPreference.getInstance(dataStore)
         )

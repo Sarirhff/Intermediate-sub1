@@ -17,12 +17,12 @@ class LoginViewModel(
             pref.saveUser(token)
         }
     }
+    fun loginUser(email: String, password: String) =
+        repos.loginUser(email, password)
+
     fun checkIfNewUser(): LiveData<Boolean> {
         return pref.newUser().asLiveData()
     }
-
-    fun loginUser(email: String, password: String) =
-        repos.loginUser(email, password)
 
     class LoginViewModelFactory private constructor(
         private val userRepository: RepositoryUser,

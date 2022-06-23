@@ -20,34 +20,35 @@ class UploadStoryViewModel (
     fun checkIfTokenAvailable(): LiveData<String> {
         return userPreference.getUser().asLiveData()
     }
-}
-class UploadStoryViewModelFactory private constructor(
-    private val storyUserRepository: StoryReposUser,
-    private val userPreference: UserPreference
-) :
-    ViewModelProvider.NewInstanceFactory() {
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(UploadStoryViewModel::class.java)) {
-            return UploadStoryViewModel(storyUserRepository, userPreference) as T
+
+    class UploadStoryViewModelFactory private constructor(
+        private val storyUserRepository: StoryReposUser,
+        private val userPreference: UserPreference
+    ) :
+        ViewModelProvider.NewInstanceFactory() {
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(UploadStoryViewModel::class.java)) {
+                return UploadStoryViewModel(storyUserRepository, userPreference) as T
+            }
+
+            throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }
 
-        throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
-    }
+        companion object {
+            @Volatile
+            private var instance: UploadStoryViewModelFactory? = null
 
-    companion object {
-        @Volatile
-        private var instance: UploadStoryViewModelFactory? = null
-
-        fun getInstance(
-            context: Context,
-            userPreference: UserPreference
-        ): UploadStoryViewModelFactory =
-            instance ?: synchronized(this) {
-                instance ?: UploadStoryViewModelFactory(
-                    Injection.provideStoryRepository(context),
-                    userPreference
-                )
-            }.also { instance = it }
+            fun getInstance(
+                context: Context,
+                userPreference: UserPreference
+            ): UploadStoryViewModelFactory =
+                instance ?: synchronized(this) {
+                    instance ?: UploadStoryViewModelFactory(
+                        Injection.provideStoryRepository(context),
+                        userPreference
+                    )
+                }.also { instance = it }
+        }
     }
 }

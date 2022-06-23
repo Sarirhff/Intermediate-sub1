@@ -36,6 +36,7 @@ class BoardingActivity : AppCompatActivity() {
 
             hideSystemUI()
         }
+
     }
 
     private fun hideSystemUI() {

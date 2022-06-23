@@ -7,8 +7,14 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable-v24/edit_text.xml" value="0.1055" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable-v24/ic_circle_empty.xml" value="0.1055" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable-v24/ic_circle_full.xml" value="0.1055" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.154" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable/background_blue.xml" value="0.1055" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable/ic_cameraswitch.xml" value="0.144" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable/ic_logo_s.xml" value="0.154" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable/ic_logo_saya.xml" value="0.154" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable/ic_logoku.xml" value="0.154" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable/ic_photo_library_white.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/drawable/ic_profile_black.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/layout/activity_add_story.xml" value="0.2" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/layout/activity_boarding.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/layout/activity_camera.xml" value="0.2" />
@@ -19,7 +25,8 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/layout/activity_regis_user.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/layout/activity_upload_story.xml" value="0.22" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/layout/item_story.xml" value="0.1" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/menu/option_menu.xml" value="0.22" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/menu/option_menu.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.154" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/StoryAPP/app/src/main/res/xml/activity_boarding_sceen.xml" value="0.2" />
       </map>
     </option>

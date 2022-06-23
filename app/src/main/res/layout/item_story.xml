@@ -24,7 +24,8 @@
             android:layout_height="320dp"
             android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            tools:src="@tools:sample/avatars"
+            android:contentDescription="@string/imgview" />
 
         <TextView
             android:id="@+id/tv_story_username"
@@ -32,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="18dp"
             android:layout_marginTop="8dp"
-            android:text="username"
+            android:text="@string/user_name"
             android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -47,7 +48,7 @@
             android:layout_marginTop="12dp"
             android:ellipsize="end"
             android:maxLines="4"
-            android:text="description"
+            android:text="@string/descrip_story"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_story_username" />
